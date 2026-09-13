@@ -1,0 +1,52 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+@use "../../styles/functions" as f;
+
+.toast {
+    position: fixed;
+    top: f.spacing(xl);
+    right: f.spacing(xl);
+    z-index: 3000;
+    min-width: f.rem(260px);
+    max-width: f.rem(360px);
+    padding: f.spacing(md) f.spacing(lg);
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(sm);
+    border-radius: f.radius(md);
+    box-shadow: f.shadow(md);
+    font-family: v.$font-secondary;
+    font-size: f.font-size(md);
+    font-weight: f.font-weight(semibold);
+    background: v.$color-white;
+    border: f.rem(1px) solid v.$color-border;
+
+    &--success {
+        border-left: f.rem(4px) solid v.$color-success;
+    }
+
+    &--error {
+        border-left: f.rem(4px) solid v.$color-danger;
+    }
+
+    &__icon {
+        @include m.circle(f.rem(24px));
+        flex: 0 0 auto;
+        background: v.$bg-success;
+        color: v.$color-success;
+    }
+
+    &--error &__icon {
+        background: v.$bg-danger;
+        color: v.$color-danger;
+    }
+}
+
+@media (max-width: 600px) {
+    .toast {
+        top: f.spacing(md);
+        right: f.spacing(md);
+        left: f.spacing(md);
+        min-width: 0;
+        max-width: none;
+    }
+}

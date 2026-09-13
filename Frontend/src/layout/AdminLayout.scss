@@ -1,0 +1,254 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+@use "../styles/functions" as f;
+
+.admin-layout {
+    @include m.flex(row, flex-start, stretch);
+    min-height: 100vh;
+    background-color: v.$bg-admin-main;
+    font-family: v.$font-secondary;
+
+    .admin-mobile-header {
+        @include m.flex(row, space-between, center);
+        display: none;
+        width: 100%;
+        background-color: v.$color-black;
+        color: v.$color-white;
+        padding: f.spacing(sm) f.spacing(xl);
+        position: sticky;
+        top: 0;
+        z-index: 99;
+
+        .mobile-toggle-btn {
+            @include m.button-reset;
+            color: v.$color-white;
+            font-size: f.font-size(xl);
+        }
+
+        .admin-brand-logo {
+            @include m.flex(row, flex-start, center);
+            gap: f.spacing(sm);
+            color: v.$color-white;
+            font-family: v.$font-primary;
+            font-size: f.font-size(xl);
+            font-weight: f.font-weight(v.$color-black);
+            text-decoration: none;
+
+            .admin-mobile__badge {
+                background-color: v.$color-danger;
+                padding: f.rem(2px) f.rem(6px);
+                border-radius: f.radius(sm);
+                font-family: v.$font-secondary;
+                font-size: f.rem(10px);
+                letter-spacing: f.rem(0.5px);
+            }
+        }
+
+        .store-link-icon {
+            font-size: f.font-size(lg);
+            text-decoration: none;
+        }
+    }
+
+    .admin-sidebar {
+        @include m.flex(column, flex-start, stretch);
+        width: f.rem(280px);
+           
+        min-height: 100vh;
+        height: 100vh;
+        flex-shrink: 0;
+        padding: f.rem(28px) f.spacing(xl);
+        background-color: v.$color-black;
+        color: v.$color-white;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        transition: transform 0.3s ease;
+
+        &__header {
+            @include m.flex(row, space-between, center);
+            margin-bottom: f.spacing(2xl);
+
+            .close-sidebar-btn {
+                @include m.button-reset;
+                display: none;
+                color: v.$color-white;
+                font-size: f.font-size(2xl);
+            }
+        }
+
+        &__logo {
+            @include m.flex(row, flex-start, center);
+            gap: f.spacing(sm);
+            color: v.$color-white;
+            font-family: v.$font-primary;
+            font-size: f.font-size(2xl);
+            font-weight: f.font-weight(black);
+            text-decoration: none;
+
+            .admin-badge {
+                background-color: v.$color-danger;
+                color: v.$color-white;
+                padding: f.rem(2px) f.spacing(sm);
+                border-radius: f.radius(sm);
+                font-family: v.$font-secondary;
+                font-size: f.rem(11px);
+                font-weight: f.font-weight(bold);
+                letter-spacing: f.rem(0.5px);
+            }
+        }
+
+        &__user {
+            @include m.flex(row, flex-start, center);
+            gap: f.spacing(md);
+            margin-bottom: f.rem(28px);
+            padding: f.spacing(md) f.rem(14px);
+            background-color: v.$color-white-soft;
+            border-radius: f.rem(12px);
+
+            .avatar {
+                @include m.circle(f.rem(40px));
+                flex-shrink: 0;
+                background: v.$color-white;
+                color: v.$color-black;
+                font-size: f.font-size(lg);
+                font-weight: f.font-weight(bold);
+            }
+
+            .user-info {
+                @include m.flex(column, flex-start, stretch);
+                overflow: hidden;
+
+                .admin-sidebar__user-name {
+                    @include m.text-ellipsis;
+                    color: v.$color-white;
+                    font-size: f.font-size(md);
+                    font-weight: f.font-weight(semibold);
+                }
+
+                .admin-sidebar__user-email {
+                    @include m.text-ellipsis;
+                    color: v.$color-white-muted;
+                    font-size: f.font-size(sm);
+                }
+            }
+        }
+
+        &__nav {
+            @include m.flex(column, flex-start, stretch);
+            gap: f.spacing(sm);
+            flex: 1;
+
+            .nav-link {
+                @include m.flex(row, flex-start, center);
+                gap: f.spacing(md);
+                padding: f.spacing(md) f.spacing(md);
+                border-radius: f.radius(md);
+                color: v.$color-white-muted;
+                font-size: f.rem(15px);
+                font-weight: f.font-weight(regular);
+                text-decoration: none;
+                transition: all 0.2s;
+
+                .icon {
+                    font-size: f.rem(1.15rem);
+                }
+
+                &:hover {
+                    background-color: v.$color-white-hover;
+                    color: v.$color-white;
+                }
+
+                &.active {
+                    background-color: v.$color-white;
+                    color: v.$color-black;
+                    font-weight: f.font-weight(bold);
+                }
+            }
+
+            .nav-divider {
+                border: none;
+                border-top: 1px solid v.$color-white-border;
+                margin: f.spacing(md) 0;
+            }
+
+            .store-link {
+                color: v.$color-white-subtle;
+
+                &:hover {
+                    color: v.$color-white;
+                }
+            }
+        }
+
+        &__footer {
+            margin-top: auto;
+            padding-top: f.spacing(md);
+
+            .logout-btn {
+                @include m.button-reset;
+                @include m.flex(row, center, center);
+                width: 100%;
+                gap: f.spacing(sm);
+                padding: f.spacing(md);
+                background-color: v.$bg-danger;
+                color: v.$color-danger-light;
+                border-radius: f.radius(md);
+                font-size: f.font-size(md);
+                font-weight: f.font-weight(semibold);
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: v.$color-danger;
+                    color: v.$color-white;
+                }
+            }
+        }
+    }
+  
+
+    .admin-main {
+    flex: 1;
+    min-width: 0;
+    margin-left: f.rem(280px);
+    padding: f.rem(36px) f.rem(40px);
+    overflow-y: auto;
+}
+}
+
+@media (max-width: 992px) {
+    .admin-layout {
+        @include m.flex(column, flex-start, stretch);
+        .admin-mobile-header {
+            @include m.flex(row, space-between, center);
+            width: 100%;
+        }
+
+        .admin-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: f.rem(280px);
+            height: 100vh;
+            transform: translateX(-100%);
+            box-shadow: none;
+
+            &.open {
+                transform: translateX(0);
+                box-shadow: f.rem(4px) 0 f.rem(20px) v.$color-overlay;
+            }
+
+            &__header {
+                .close-sidebar-btn {
+                    display: block;
+                }
+            }
+        }
+        .admin-main {
+    margin-left: 0;
+    padding: f.spacing(xl);
+}
+    }
+}

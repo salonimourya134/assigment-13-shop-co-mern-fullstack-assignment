@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "variables" as v;
+
+@function rem($px) {
+    @return calc($px / 16px) * 1rem;
+}
+
+@function spacing($key) {
+    @return map.get(v.$spacing, $key);
+}
+
+@function font-size($key) {
+    @return map.get(v.$font-sizes, $key);
+}
+
+@function font-weight($key) {
+    @return map.get(v.$font-weights, $key);
+}
+
+@function radius($key) {
+    @return map.get(v.$radii, $key);
+}
+
+@function shadow($key) {
+    @return map.get(v.$shadows, $key);
+}

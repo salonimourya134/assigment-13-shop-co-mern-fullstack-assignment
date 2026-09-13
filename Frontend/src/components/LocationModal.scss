@@ -1,0 +1,82 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+@use "../styles/functions" as f;
+
+.location-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  padding: f.spacing(lg);
+  background: v.$color-overlay;
+  @include m.flex(row, center, center);
+
+  &__card {
+    position: relative;
+    width: min(100%, f.rem(420px));
+    padding: f.rem(40px) f.spacing(3xl);
+    border-radius: f.radius(md);
+    background: v.$color-white;
+    box-shadow: f.shadow(lg);
+    text-align: center;
+  }
+
+  &__close {
+    @include m.button-reset;
+    position: absolute;
+    top: f.spacing(lg);
+    right: f.spacing(lg);
+    font-size: f.font-size(2xl);
+    color: v.$color-gray-600;
+  }
+
+  &__icon {
+    @include m.circle(f.rem(56px));
+    margin: 0 auto f.spacing(lg);
+    background: v.$color-info;
+    color: v.$color-white;
+    font-size: f.font-size(lg);
+  }
+
+  &__title {
+    margin: 0;
+    font-size: f.font-size(xl);
+    font-weight: f.font-weight(bold);
+  }
+  &__text {
+    margin: f.spacing(md) 0;
+    color: v.$color-gray-700;
+    font-size: f.font-size(md);
+    line-height: 1.5;
+  }
+  &__error {
+    margin: f.spacing(md) 0;
+    color: v.$color-danger;
+    font-size: f.font-size(sm);
+  }
+  &__actions {
+    @include m.flex(column, center, stretch);
+    gap: f.spacing(sm);
+    margin-top: f.spacing(xl);
+  }
+
+  &__confirm,
+  &__retry,
+  &__cancel {
+    @include m.button-reset;
+    padding: f.spacing(md);
+    font-size: f.font-size(md);
+    font-weight: f.font-weight(semibold);
+  }
+
+  &__confirm {
+    background: v.$color-info;
+    color: v.$color-white;
+  }
+  &__retry {
+    border: 1px solid v.$color-info;
+    color: v.$color-info;
+  }
+  &__cancel {
+    color: v.$color-info;
+  }
+}

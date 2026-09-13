@@ -1,0 +1,258 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+@use "../../styles/functions" as f;
+
+.newsletter {
+  max-width: f.rem(1240px);
+  width: calc(100% - #{f.spacing(2xl)});
+  min-height: f.rem(180px);
+  margin: 0 auto;
+  position: relative;
+  top: -3.5rem;
+  z-index: 2;
+  @include m.flex(row, space-between, center);
+  gap: f.spacing(xl);
+  box-sizing: border-box;
+  padding: f.rem(36px) f.rem(64px);
+  border-radius: f.radius(xl);
+  background: v.$color-black;
+
+  &__content {
+    width: 100%;
+    @include m.flex(row, space-between, center);
+    gap: f.spacing(3xl);
+  }
+  &__heading {
+    margin: 0;
+    font-family: v.$font-primary;
+    font-size: f.font-size(4xl);
+    line-height: 1.15;
+    font-weight: f.font-weight(bold);
+    letter-spacing: -0.02em;
+    color: v.$color-white;
+  }
+  &__break {
+    display: block;
+  }
+  &__form {
+    width: f.rem(349px);
+    max-width: 100%;
+    @include m.flex(column, flex-start, stretch);
+    gap: f.spacing(md);
+  }
+  &__input {
+    width: 100%;
+    position: relative;
+  }
+  &__icon {
+    position: absolute;
+    left: f.spacing(lg);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: f.font-size(xl);
+    color: v.$color-light-gray;
+    pointer-events: none;
+  }
+  &__input-field {
+    width: 100%;
+    height: f.rem(48px);
+    box-sizing: border-box;
+    padding: 0 f.spacing(lg) 0 f.rem(52px);
+    border: 0;
+    border-radius: f.radius(pill);
+    outline: 0;
+    font-family: v.$font-secondary;
+    font-size: f.font-size(sm);
+    background: v.$color-white;
+    color: v.$color-black;
+  }
+  &__input-field::placeholder {
+    color: v.$color-light-gray;
+  }
+  &__button {
+    width: 100%;
+    height: f.rem(48px);
+    @include m.button-reset;
+    border-radius: f.radius(pill);
+    font-family: v.$font-secondary;
+    font-size: f.font-size(sm);
+    font-weight: f.font-weight(semibold);
+    background: v.$color-white;
+    color: v.$color-black;
+  }
+  &__button:hover {
+    background: v.$color-white-secondary;
+  }
+  &__msg {
+    color: v.$color-white;
+    font-size: f.font-size(sm);
+    text-align: center;
+  }
+}
+
+.footer {
+  width: 100%;
+  background: v.$bg-color-card;
+  position: relative;
+
+  &__main {
+    width: 100%;
+    max-width: f.rem(1240px);
+    margin: 0 auto;
+    padding: f.rem(30px) f.spacing(lg) f.rem(50px);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: f.spacing(4xl);
+    box-sizing: border-box;
+    font-family: v.$font-secondary;
+    font-size: f.font-size(lg);
+  }
+  &__brand {
+    max-width: f.rem(280px);
+  }
+  &__logo {
+    margin: 0 0 f.spacing(lg);
+    font-family: v.$font-primary;
+    font-size: f.font-size(3xl);
+    line-height: 1;
+    font-weight: f.font-weight(bold);
+    letter-spacing: -0.02em;
+    color: v.$color-black;
+  }
+  &__description {
+    margin: 0;
+    color: v.$color-light-gray;
+    font-size: f.font-size(sm);
+    line-height: 1.6;
+  }
+  &__socials {
+    margin-top: f.spacing(2xl);
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(md);
+  }
+  &__social {
+    @include m.circle(f.rem(32px));
+    border: 1px solid v.$border-color-black;
+    background: v.$color-white;
+    color: v.$color-black;
+    text-decoration: none;
+  }
+  &__social:hover {
+    background: v.$color-black;
+    border-color: v.$color-black;
+  }
+  &__social:hover &__social-icon {
+    filter: brightness(0) invert(1);
+  }
+  &__social-icon {
+    width: f.rem(16px);
+    height: f.rem(16px);
+    object-fit: contain;
+  }
+  &__social--facebook {
+    background: v.$color-black;
+  }
+  &__social--facebook &__social-icon {
+    filter: brightness(0) invert(1);
+  }
+  &__column {
+    @include m.flex(column, flex-start, stretch);
+  }
+  &__title {
+    margin: 0 0 f.spacing(2xl);
+    font-size: f.font-size(sm);
+    line-height: 1;
+    font-weight: f.font-weight(semibold);
+    letter-spacing: f.rem(2px);
+    color: v.$color-black;
+  }
+  &__link {
+    margin-bottom: f.spacing(sm);
+    color: v.$color-light-gray;
+    font-size: f.font-size(sm);
+    line-height: 1.4;
+    text-decoration: none;
+  }
+  &__link:hover {
+    color: v.$color-black;
+  }
+  &__bottom {
+    width: 100%;
+    max-width: f.rem(1240px);
+    margin: 0 auto;
+    padding: f.spacing(2xl) f.spacing(lg) f.rem(40px);
+    @include m.flex(row, space-between, center);
+    border-top: 1px solid v.$border-color-black;
+    box-sizing: border-box;
+  }
+  &__copyright {
+    margin: 0;
+    font-size: f.font-size(sm);
+    color: v.$color-light-gray;
+  }
+  &__payments {
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(sm);
+  }
+  &__payment {
+    width: f.rem(48px);
+    height: f.rem(30px);
+    @include m.flex(row, center, center);
+    border: 1px solid v.$border-color-black;
+    border-radius: f.radius(sm);
+    background: v.$color-white;
+  }
+  &__payment-icon {
+    max-width: 80%;
+    max-height: 70%;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    top: 0.75rem;
+    margin: -2.5rem auto f.spacing(lg);
+    padding: f.rem(28px) f.spacing(lg);
+    border-radius: f.radius(lg);
+    &__content {
+      @include m.flex(column, flex-start, stretch);
+      gap: f.spacing(2xl);
+    }
+    &__heading {
+      font-size: f.font-size(2xl);
+      line-height: 1.2;
+    }
+    &__break {
+      display: none;
+    }
+    &__form {
+      width: 100%;
+    }
+  }
+  .footer {
+    &__main {
+      grid-template-columns: 1fr 1fr;
+      gap: f.spacing(3xl) f.spacing(xl);
+      padding: f.spacing(3xl) f.spacing(lg);
+    }
+    &__brand {
+      grid-column: 1 / -1;
+      max-width: 100%;
+    }
+    &__logo {
+      font-size: f.font-size(2xl);
+      margin-bottom: f.spacing(md);
+    }
+    &__bottom {
+      @include m.flex(column, center, center);
+      gap: f.spacing(lg);
+      padding: f.spacing(2xl) f.spacing(lg);
+      text-align: center;
+    }
+    &__payments {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}

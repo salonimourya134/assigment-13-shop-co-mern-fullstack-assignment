@@ -1,0 +1,187 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+@use "../styles/functions" as f;
+
+.login {
+    @include m.flex(row, center, center);
+    min-height: calc(100vh - f.rem(140px));
+    padding: f.rem(40px) f.spacing(xl);
+    background-color: v.$bg-color-card;
+
+    &__box {
+        width: 100%;
+        max-width: f.rem(360px);
+        padding: f.rem(28px);
+        background-color: v.$color-white;
+        border-radius: f.radius(xl);
+        box-shadow: 0 f.rem(4px) f.rem(20px) v.$color-shadow-faint;
+    }
+
+    &__logo {
+        margin-bottom: f.rem(18px);
+        color: v.$color-black;
+        font-family: v.$font-primary;
+        font-size: f.font-size(2xl);
+        font-weight: f.font-weight(v.$color-black);
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: f.spacing(xl);
+        font-family: v.$font-primary;
+        font-size: f.rem(26px);
+        font-weight: f.font-weight(bold);
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+
+    &__subtitle {
+        margin: f.spacing(sm) 0 f.rem(24px);
+        color: v.$color-light-gray;
+        font-family: v.$font-secondary;
+        font-size: f.font-size(md);
+        text-align: center;
+    }
+
+    &__form {
+        @include m.flex(column, flex-start, stretch);
+
+        gap: f.spacing(xl);
+    }
+
+    &__field {
+        @include m.flex(column, flex-start, stretch);
+
+        gap: f.spacing(sm);
+        font-family: v.$font-secondary;
+        font-size: f.font-size(md);
+
+        .login__label {
+            color: v.$color-black;
+            font-weight: f.font-weight(semibold);
+        }
+    }
+
+    &__input {
+        width: 100%;
+        height: f.rem(44px);
+        box-sizing: border-box;
+        padding: 0 f.spacing(md);
+        background-color: v.$color-white-primary;
+        border: 1px solid v.$border-color-black;
+        border-radius: f.rem(22px);
+        outline: none;
+        font-family: v.$font-secondary;
+        font-size: f.font-size(md);
+        transition: border-color 0.2s, background-color 0.2s;
+
+        &:focus {
+            background-color: v.$color-white;
+            border-color: v.$color-black;
+        }
+    }
+
+    &__options {
+        @include m.flex(row, space-between, center);
+
+        gap: f.spacing(md);
+        font-family: v.$font-secondary;
+        font-size: f.rem(13px);
+    }
+
+    &__remember {
+        @include m.flex(row, flex-start, center);
+
+        gap: f.rem(7px);
+        cursor: pointer;
+
+        .element-span {
+            font-family: v.$font-secondary;
+        }
+    }
+
+    &__forgot {
+        @include m.button-reset;
+
+        color: v.$color-black;
+        font-size: inherit;
+        text-decoration: underline;
+    }
+
+    &__message {
+        margin: 0;
+        padding: f.spacing(sm);
+        border-radius: f.radius(sm);
+        font-family: v.$font-secondary;
+        font-size: f.rem(13px);
+        text-align: center;
+
+        &--error {
+            color: v.$color-red;
+            background-color: v.$bg-red;
+        }
+
+        &--success {
+            color: v.$color-green;
+            background-color: v.$bg-success;
+        }
+    }
+
+    &__button {
+        @include m.button-reset;
+
+        width: 100%;
+        height: f.rem(44px);
+        background-color: v.$color-black;
+        color: v.$color-white;
+        border-radius: f.rem(22px);
+        font-family: v.$font-secondary;
+        font-size: f.font-size(md);
+        font-weight: f.font-weight(semibold);
+        transition: opacity 0.2s, transform 0.1s;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+
+    &__footer {
+        margin-top: f.spacing(xl);
+        color: v.$color-light-gray;
+        font-family: v.$font-secondary;
+        font-size: f.font-size(md);
+        text-align: center;
+
+        .login__signup-link {
+            margin-left: f.rem(4px);
+            color: v.$color-black;
+            font-weight: f.font-weight(bold);
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    .login {
+        padding: f.spacing(md) f.spacing(sm);
+
+        &__box {
+            padding: f.spacing(xl) f.spacing(md);
+            border-radius: f.radius(lg);
+        }
+
+        &__title {
+            margin-bottom: f.spacing(xl);
+            font-size: f.rem(26px);
+        }
+    }
+}

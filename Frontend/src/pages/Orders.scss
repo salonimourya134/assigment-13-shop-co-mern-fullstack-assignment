@@ -1,0 +1,267 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+@use "../styles/functions" as f;
+
+.orders-page {
+    max-width: f.rem(1440px);
+    margin: 0 auto;
+    padding: f.rem(24px) f.rem(100px) f.rem(80px);
+    font-family: v.$font-secondary;
+
+    &__breadcrumb {
+        @include m.flex(row, flex-start, center);
+
+        gap: f.spacing(sm);
+        margin-bottom: f.rem(24px);
+        color: v.$color-light-gray;
+        font-size: f.font-size(md);
+
+        &-link {
+            color: v.$color-light-gray;
+            text-decoration: none;
+            transition: color 0.2s;
+
+            &:hover {
+                color: v.$color-black;
+            }
+        }
+
+        &-active {
+            color: v.$color-black;
+            font-weight: f.font-weight(medium);
+        }
+    }
+
+    &__heading {
+        margin: 0 0 f.rem(32px);
+        font-family: v.$font-primary;
+        font-size: f.rem(40px);
+        font-weight: f.font-weight(black);
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+    }
+
+    &__empty,
+    &__loading {
+        padding: f.rem(80px) f.rem(20px);
+        background: v.$color-white;
+        border: 1px solid v.$color-border;
+        border-radius: f.radius(xl);
+        text-align: center;
+    }
+
+    &__empty-title {
+        margin-bottom: f.spacing(md);
+        font-family: v.$font-primary;
+        font-size: f.rem(28px);
+    }
+
+    &__empty-message {
+        margin: 0 0 f.spacing(md);
+        font-family: v.$font-primary;
+        font-size: f.rem(28px);
+    }
+
+    &__empty-text {
+        margin-bottom: f.rem(24px);
+        color: v.$color-light-gray;
+        font-size: f.font-size(lg);
+    }
+
+    &__list {
+        @include m.flex(column, flex-start, stretch);
+
+        gap: f.rem(24px);
+    }
+
+    .btn-shop {
+        display: inline-block;
+        padding: f.rem(14px) f.rem(36px);
+        background: v.$color-black;
+        color: v.$color-white;
+        border: none;
+        border-radius: f.radius(pill);
+        cursor: pointer;
+        font-weight: f.font-weight(medium);
+        text-decoration: none;
+        transition: background 0.2s;
+
+        &:hover {
+            background: v.$color-gray-700;
+        }
+    }
+
+    .order-card {
+        padding: f.rem(24px);
+        background: v.$color-white;
+        border: 1px solid v.$color-border;
+        border-radius: f.radius(xl);
+        box-shadow: f.shadow(sm);
+
+        &__header {
+            @include m.flex(row, space-between, center);
+
+            flex-wrap: wrap;
+            gap: f.spacing(md);
+            margin-bottom: f.rem(20px);
+            padding-bottom: f.spacing(lg);
+            border-bottom: 1px solid v.$color-border-light;
+        }
+
+        .order-info {
+            @include m.flex(column, flex-start, flex-start);
+
+            gap: f.spacing(xs);
+        }
+
+        .order-id {
+            color: v.$color-black;
+            font-size: f.rem(18px);
+            font-weight: f.font-weight(bold);
+        }
+
+        .order-date {
+            color: v.$color-gray-500;
+            font-size: f.rem(13px);
+        }
+
+        .order-meta {
+            @include m.flex(row, flex-start, center);
+
+            gap: f.spacing(lg);
+        }
+
+        .order-total {
+            color: v.$color-black;
+            font-size: f.rem(24px);
+            font-weight: f.font-weight(bold);
+        }
+
+        .order-status {
+            display: inline-block;
+            padding: f.rem(6px) f.rem(14px);
+            border-radius: f.radius(pill);
+            font-size: f.rem(13px);
+            font-weight: f.font-weight(semibold);
+            text-transform: capitalize;
+
+            &.badge--not-process {
+                background: v.$bg-warning;
+                color: v.$color-warning;
+            }
+
+            &.badge--processing {
+                background: v.$color-gray-100;
+                color: v.$color-gray-700;
+            }
+
+            &.badge--shipped {
+                background: v.$bg-info;
+                color: v.$color-info;
+            }
+
+            &.badge--delivered {
+                background: v.$bg-success;
+                color: v.$color-success;
+            }
+
+            &.badge--cancelled {
+                background: v.$bg-danger;
+                color: v.$color-danger;
+            }
+        }
+
+        &__items {
+            @include m.flex(column, flex-start, stretch);
+
+            gap: f.rem(14px);
+            margin-bottom: f.rem(20px);
+        }
+    }
+
+    .order-item {
+        @include m.flex(row, flex-start, center);
+
+        gap: f.spacing(lg);
+        padding: f.rem(10px) 0;
+
+        &__image {
+            @include m.flex(row, center, center);
+
+            width: f.rem(64px);
+            height: f.rem(64px);
+            flex-shrink: 0;
+            overflow: hidden;
+            background-color: v.$bg-color-card;
+            border-radius: f.rem(10px);
+        }
+
+        &__image-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        &__details {
+            flex: 1;
+        }
+
+        &__title {
+            margin: 0 0 f.rem(4px);
+            color: v.$color-black;
+            font-size: f.font-size(lg);
+            font-weight: f.font-weight(semibold);
+        }
+
+        &__qty {
+            margin: 0;
+            color: v.$color-light-gray;
+            font-size: f.rem(13px);
+        }
+
+        &__subtotal {
+            color: v.$color-black;
+            font-size: f.font-size(lg);
+            font-weight: f.font-weight(bold);
+        }
+    }
+
+    .order-card__footer {
+        padding-top: f.spacing(lg);
+        border-top: 1px solid v.$color-border-light;
+    }
+
+    .shipping-info {
+        @include m.flex(column, flex-start, flex-start);
+
+        gap: f.rem(6px);
+        color: v.$color-light-gray;
+        font-size: f.rem(13px);
+
+        &__value {
+            color: v.$color-black;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .orders-page {
+        padding: f.rem(16px) f.rem(20px) f.rem(60px);
+
+        &__heading {
+            margin-bottom: f.rem(20px);
+            font-size: f.rem(32px);
+        }
+
+        .order-card {
+            padding: f.rem(16px);
+
+            &__header {
+                .order-meta {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}

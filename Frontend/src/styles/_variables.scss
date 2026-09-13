@@ -1,0 +1,121 @@
+
+$font-primary: "Integral CF", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-secondary: "Satoshi", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-white-primary: #f0f0f0;
+$color-white-secondary: #f0eeed;
+$bg-color-card: #f0eeed;
+
+$color-gray-50: #fafafa;
+$color-gray-100: #f0f0f0;
+$color-gray-200: #e4e2e1;
+$color-gray-300: #cccccc;
+$color-gray-400: #999999;
+$color-gray-500: #888888;
+$color-gray-600: #666666;
+$color-gray-700: #333333;
+$color-light-gray: rgba(0, 0, 0, 0.6);
+$color-muted: rgba(0, 0, 0, 0.4);
+$color-white-faded: #777777;
+
+$border-color-black: rgba(0, 0, 0, 0.1);
+$color-border: rgba(0, 0, 0, 0.1);
+$color-border-light: rgba(0, 0, 0, 0.06);
+$color-overlay: rgba(0, 0, 0, 0.5);
+$color-shadow: rgba(0, 0, 0, 0.15);
+
+$color-red: #d31c1c;
+$color-danger: #ff3333;
+$color-danger-dark: #d63031;
+$bg-red: rgba(255, 51, 51, 0.129);
+$bg-danger: rgba(255, 51, 51, 0.12);
+
+$color-green: #01ab31;
+$color-success: #01ab31;
+$bg-success: rgba(1, 171, 49, 0.1);
+
+$color-star-yello: #ffc633;
+$color-warning: #ffc633;
+$bg-warning: rgba(255, 198, 51, 0.15);
+
+$color-info: #0984e3;
+$bg-info: rgba(9, 132, 227, 0.1);
+
+$button-color-brown: #4f4635;
+$button-color-dark-green: #314f3b;
+$button-color-dark-blue: #31344f;
+
+$swatch-green: #00c12b;
+$swatch-red: #f50606;
+$swatch-yellow: #f5dd06;
+$swatch-orange: #f57906;
+$swatch-cyan: #06caf5;
+$swatch-blue: #063af5;
+$swatch-purple: #7d06f5;
+$swatch-pink: #f506a4;
+
+$bg-admin-main: #f7f7f8;
+$color-gray-250: #e2e2e2;
+$color-danger-light: #ff4d4d;
+$color-shadow-light: rgba(0, 0, 0, 0.25);
+$color-shadow-dark: rgba(0, 0, 0, 0.6);
+
+
+$spacing: (
+    xs: 4px,
+    sm: 8px,
+    md: 12px,
+    lg: 16px,
+    xl: 20px,
+    2xl: 24px,
+    3xl: 32px,
+    4xl: 40px,
+    5xl: 48px
+);
+
+$font-sizes: (
+    xs: 12px,
+    sm: 13px,
+    md: 14px,
+    lg: 16px,
+    xl: 18px,
+    2xl: 24px,
+    3xl: 32px,
+    4xl: 40px
+);
+
+$font-weights: (
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    black: 900
+);
+
+$radii: (
+    sm: 6px,
+    md: 10px,
+    lg: 14px,
+    xl: 20px,
+    pill: 999px,
+    round: 50%
+);
+
+$shadows: (
+    sm: 0 2px 10px $color-border-light,
+    md: 0 8px 24px $color-shadow,
+    lg: 0 10px 40px $color-shadow
+);
+
+
+$color-white-soft: rgba(255, 255, 255, 0.08);
+$color-white-muted: rgba(255, 255, 255, 0.6);
+$color-white-subtle: rgba(255, 255, 255, 0.5);
+$color-white-hover: rgba(255, 255, 255, 0.1);
+$color-white-border: rgba(255, 255, 255, 0.15);
+$color-black-muted: rgba(0, 0, 0, 0.6);
+$color-black-border: rgba(0, 0, 0, 0.1);
+$color-shadow-faint: rgba(0, 0, 0, 0.05);
+$color-shadow-medium: rgba(0, 0, 0, 0.2);

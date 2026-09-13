@@ -1,0 +1,146 @@
+@use "./variables" as v;
+@use "./mixins" as m;
+@use "./functions" as f;
+
+@font-face {
+    font-family: "Integral CF";
+    src: url("../assets/fonts/Fontspring-DEMO-integralcf-bold.otf")
+    format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url("../assets/fonts/Satoshi-Variable.ttf") format("truetype");
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: v.$font-secondary;
+    color: v.$color-black;
+    background-color: v.$color-white;
+}
+
+:root {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+input {
+    font-family: inherit;
+}
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: f.rem(210px);
+    height: f.rem(52px);
+    background-color: v.$color-black;
+    color: v.$color-white-primary;
+    border: none;
+    border-radius: f.rem(62px);
+    font-family: v.$font-secondary;
+    font-weight: 500;
+    font-size: f.rem(16px);
+    padding: f.rem(16px) f.rem(32px);
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.btn-secondary {
+    @extend .btn;
+    width: f.rem(218px);
+    height: f.rem(52px);
+    border: 1px solid v.$border-color-black;
+    background: transparent;
+    color: v.$color-black;
+
+    &:hover {
+        background-color: v.$color-white-secondary;
+    }
+}
+
+.logout {
+    padding: f.rem(10px) f.rem(16px);
+    border: none;
+    border-radius: f.rem(20px);
+    background-color: v.$color-black;
+    color: v.$color-white;
+    font-family: v.$font-secondary;
+    font-size: f.rem(14px);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+
+.site-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    flex: 1;
+    min-height: calc(100vh - 140px);
+}
+
+.route-loading-container {
+    text-align: center;
+    padding: f.rem(64px) f.rem(20px);
+    color: v.$color-gray-600;
+    font-size: f.rem(16px);
+}
+
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+
+    &__star {
+        display: inline-block;
+        flex-shrink: 0;
+    }
+}
+
+.star-rating__fill {
+    stop-color: v.$color-star-yello;
+}
+
+.star-rating__empty {
+    stop-color: v.$color-gray-200;
+}

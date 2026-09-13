@@ -1,0 +1,111 @@
+@use "../styles/variables" as v;
+@use "../styles/mixins" as m;
+@use "../styles/functions" as f;
+
+.address-form {
+  @include m.flex(column, flex-start, stretch);
+  gap: f.spacing(xl);
+
+  &__location {
+    @include m.button-reset;
+    width: fit-content;
+    padding: f.spacing(md) f.spacing(xl);
+    border-radius: f.radius(sm);
+    background: v.$color-info;
+    color: v.$color-white;
+    font-size: f.font-size(md);
+    font-weight: f.font-weight(semibold);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: f.spacing(md);
+  }
+
+  &__field {
+    @include m.flex(column, flex-start, stretch);
+    gap: f.spacing(xs);
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    color: v.$color-gray-600;
+    font-size: f.font-size(sm);
+    font-weight: f.font-weight(medium);
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: f.spacing(md);
+    border: 1px solid v.$color-gray-300;
+    border-radius: 0;
+    outline: none;
+    background: v.$color-white;
+    color: v.$color-black;
+    font: inherit;
+    font-size: f.font-size(md);
+
+    &:focus {
+      border-color: v.$color-black;
+    }
+    &--area {
+      min-height: f.rem(100px);
+      resize: vertical;
+    }
+  }
+
+  &__type {
+    @include m.flex(column, flex-start, flex-start);
+    gap: f.spacing(sm);
+  }
+  &__options {
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(xl);
+  }
+  &__radio {
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(sm);
+    font-size: f.font-size(md);
+  }
+  &__actions {
+    @include m.flex(row, flex-start, center);
+    gap: f.spacing(xl);
+  }
+
+  &__save,
+  &__cancel {
+    @include m.button-reset;
+    padding: f.spacing(md) f.spacing(3xl);
+    font-size: f.font-size(md);
+    font-weight: f.font-weight(bold);
+  }
+
+  &__save {
+    background: v.$color-info;
+    color: v.$color-white;
+  }
+  &__cancel {
+    color: v.$color-info;
+  }
+}
+
+@media (max-width: 640px) {
+  .address-form__grid {
+    grid-template-columns: 1fr;
+  }
+  .address-form__field--full {
+    grid-column: auto;
+  }
+  .address-form__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .address-form__save {
+    width: 100%;
+  }
+}
