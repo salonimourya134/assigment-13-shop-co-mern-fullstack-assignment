@@ -16,23 +16,29 @@ const locationRoutes = require("./routes/locationRoutes");
 
 const app = express();
 
-const allowedOrigins = [process.env.CLIENT_URL].filter(Boolean);
+// const allowedOrigins = ["https://shopco-frontend-nidvjf5i6-saloni-c9e6.vercel.app/",process.env.CLIENT_URL].filter(Boolean);
 
-app.use(
-  cors({
-    origin(origin, callback) {
-      if (!origin) {
-        return callback(null, true);
-      }
+// app.use(
+//   cors({
+//     origin(origin, callback) {
+//       if (!origin) {
+//         return callback(null, true);}
 
-      const isLocalhost = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin);
-      const isAllowed = allowedOrigins.includes(origin) || isLocalhost;
+//       const isLocalhost = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin);
+//       const isAllowed = allowedOrigins.includes(origin) || isLocalhost;
 
-      return callback(null, isAllowed);
-    },
-    credentials: true,
-  }),
-);
+//       return callback(null, isAllowed);
+//     },
+//     credentials: true,
+//   }),
+// );
+const corsOptions = {
+  origin: 'https://shopco-frontend-nidvjf5i6-saloni-c9e6.vercel.app/',
+  optionsSuccessStatus: 200,
+   credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(require("path").join(__dirname, "upload")));
