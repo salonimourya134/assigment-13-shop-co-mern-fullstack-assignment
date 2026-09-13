@@ -16,12 +16,29 @@ const locationRoutes = require("./routes/locationRoutes");
 
 const app = express();
 
+// const corsOptions = {
+//   origin: "https://shopco-frontend-git-main-saloni-c9e6.vercel.app",
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+// };
+
 const corsOptions = {
-  origin: "https://shopco-frontend-git-main-saloni-c9e6.vercel.app",
-  optionsSuccessStatus: 200,
-  credentials: true,
+    origin: (origin, callback) => {
+        if (
+            !origin ||
+            origin.startsWith("https://shopco-frontend-")
+        ) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+
+    optionsSuccessStatus: 200,
+    credentials: true,
 };
 
+app.use(cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
