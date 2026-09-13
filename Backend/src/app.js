@@ -17,7 +17,7 @@ const locationRoutes = require("./routes/locationRoutes");
 const app = express();
 
 const corsOptions = {
-    origin: "https://shopco-frontend-a8xmof15f-saloni-c9e6.vercel.app",
+    origin: "https://shopco-frontend-jo48zvtcq-saloni-c9e6.vercel.app/",
     optionsSuccessStatus: 200,
     credentials: true,
 };
