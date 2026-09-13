@@ -4,7 +4,6 @@ node_modules/
 # Environment
 .env
 
-
 # Logs
 logs/
 *.log
@@ -13,6 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Uploaded files
+uploads/
 
 # Temporary files
 tmp/
